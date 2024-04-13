@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 
 function WorkPage() {
@@ -31,7 +32,9 @@ function WorkPage() {
                     <div>
                     {restData.map((projects, i) => 
                             <div className='project' key={i}>
+                                <Link to={`/work/${projects.slug}`} >
                                 <h3>{projects.title.rendered}</h3>
+                                </Link>
 
                             </div>
                         )

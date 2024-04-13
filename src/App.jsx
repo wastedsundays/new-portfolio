@@ -22,7 +22,7 @@ function App() {
           <Route path='work' element={<WorkPage />} />
           <Route path='about' element={<AboutPage />} />
           <Route path='contact' element={<ContactPage />} />
-          <Route path='work/slug' element={<SinglePage />} />
+          <Route path='work/:slug' element={<SinglePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
