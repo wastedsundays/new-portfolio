@@ -22,21 +22,24 @@ function WorkPage() {
           fetchData()
       }, [worksRestPath])
 
-      console.log(restData)
-      console.log(isLoaded)
-
     return (
         <div className=''>
             <p>Hello From the Work Page</p>
             <p>This will show all the projects, with links to the individual project page for each, along with link to the actual website</p>
             <div>
-            {restData.map((projects, i) => 
-                    <div className='project' key={i}>
-                        <h3>{projects.title.rendered}</h3>
+                { isLoaded ?
+                    <div>
+                    {restData.map((projects, i) => 
+                            <div className='project' key={i}>
+                                <h3>{projects.title.rendered}</h3>
 
+                            </div>
+                        )
+                    }
                     </div>
-                )
-            }
+                    :
+                    <div>Loading...</div>
+                }
             </div>
 
         </div>
