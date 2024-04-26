@@ -7,13 +7,14 @@ function MainPage() {
         <div className=''>
             <section>
 
-                <p>Hello From the Home Page</p>
+                <h1>Adam H</h1>
+                <p>Front End Developer</p>
 
             </section>
             
             <section>
 
-                <p>What I do Section - work</p>
+                <h2>Work</h2>
                 <p>Here we will have either one project featured image, or a carousel showing a few featured projects</p>
 
                 <Link to='work'>
@@ -24,7 +25,7 @@ function MainPage() {
             </section>
 
             <section>
-                <p>Who I am section - about</p>
+                <h2>Me</h2>
                 <p>This will not have an image. Just a teaser text to get them to click on the link</p>
                 <Link to='about'>
                     <button>
@@ -34,7 +35,7 @@ function MainPage() {
             </section>
 
             <section>
-                <p>Contact section - get in touch</p>
+                <h2>Say Hello</h2>
                 <p>Say something nice to direct them to the contact page. Or, have the form be here.</p>
                 <Link to='contact'>
                     <button>
