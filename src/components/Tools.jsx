@@ -1,4 +1,4 @@
-import { REST_PATH } from "../globals/globals"
+import { REST_PATH } from "../globals/globals";
 import { useState, useEffect } from 'react';
 
 const Tools = () => {
@@ -24,14 +24,27 @@ const Tools = () => {
     return (
         <div>
             { isLoaded ?
-                <div>
-                {restData.map((projects, i) => 
-                        <div className= {`filter-data ${projects.acf.tool_category.join(" ")}`} key={i}>
-                            <img src={projects.acf.tool_image} alt={`${projects.title.rendered} logo`}/>
-                        </div>
-                    )
-                }
+            <>
+                <div className="selector-buttons">
+                    <button className='button-checked' id="*">All</button>
+                    <button className='' id="Favourite">Favourites</button>
+                    <button className='' id="Development">Develop</button>
+                    <button className='' id="Design">Design</button>
+                    <button className='' id="Other">Other</button>
                 </div>
+                <hr />
+
+                <div>
+                    <ul className='filter-container'>
+                        {restData.map((projects, i) => 
+                                <div className= {`filter-item ${projects.acf.tool_category.join(" ")}`} key={i}>
+                                    <img src={projects.acf.tool_image} alt={`Small card showing ${projects.title.rendered} logo with name in text underneath`}/>
+                                </div>
+                            )
+                        }
+                    </ul>
+                </div>
+            </>
                 :
                 <div>Loading...</div>
             }
