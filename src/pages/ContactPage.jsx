@@ -4,7 +4,7 @@
 function ContactPage() {
     return (
         <div className=''>
-            <p>Hello From the Contact Page</p>
+            <h1>Hello From the Contact Page</h1>
             <form 
             // ref={form} onSubmit={sendEmail}
             >

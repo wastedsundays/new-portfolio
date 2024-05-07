@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { REST_PATH } from '../globals/globals';
 
 
 function WorkPage() {
 
-    const worksRestPath = 'https://adamh.ca/portfolio/wordpress/wp-json/wp/v2/fwd-projects?acf_format=standard&filter[orderby]=date&order=desc&per_page=100'
+
+    const worksRestPath = `${REST_PATH}ahdesigns-work?acf_format=standard`
+    // &filter[orderby]=date&order=desc&per_page=100
 
     const [restData, setData] = useState([])    
     const [isLoaded, setIsLoaded] = useState(false)
@@ -25,7 +28,7 @@ function WorkPage() {
 
     return (
         <div className=''>
-            <p>Hello From the Work Page</p>
+            <h1>Hello From the Work Page</h1>
             <p>This will show all the projects, with links to the individual project page for each, along with link to the actual website</p>
             <div>
                 { isLoaded ?
