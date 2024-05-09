@@ -6,10 +6,10 @@ import { REST_PATH } from "../globals/globals";
 function SinglePage() {
     const { slug } = useParams()
 
-    // const restPath = `https://wastedsundays.com/adamhdesign/wp-json/wp/v2/ahdesigns-work?acf_format=standard&slug=${ slug }&_embed`
     const restPath = `${REST_PATH}ahdesigns-work?acf_format=standard&slug=${ slug }&_embed`
     const [restData, setData] = useState([])    
     const [isLoaded, setLoadStatus] = useState(false)
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -27,13 +27,29 @@ function SinglePage() {
 
 
 
+    
+
     return (
         <div className=''>
-            <p>Hello From the Single Page</p>
-            <p>This page will display individual projects with details etc.</p>
             { isLoaded ?
                 <div>
                     <h2>{restData[0].title.rendered}</h2>
+                    
+                    {restData[0].acf.work_tools && restData[0].acf.work_tools.length > 0 &&
+                        <div>
+                            <h3>Tools Used</h3>
+                            {restData[0].acf.work_tools.map((tool, i) => 
+                                <div key={i}>
+                                    <div className={tool.post_title}>
+                                        {tool.ID}
+                                        {tool.post_title}
+        
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    }
+
                     
                     <Link to='../contact'>
                         <button>
