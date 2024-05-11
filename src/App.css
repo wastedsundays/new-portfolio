@@ -7,3 +7,8 @@ section {
 body::-webkit-scrollbar {
   display: none;
 }
+
+.filter-item {
+  width: 70px;
+  height: 88px;
+}
