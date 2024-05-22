@@ -50,7 +50,6 @@ import Isotope from 'isotope-layout';
     }, [filterKey])
 
     const handleFilterKeyChange = key => () => {
-        console.log('click')
         // setFilterKey(key);    <--this is the original.
         //this checks if the button is already highlighted. If it is, it unclicks it and sets the filter to ALL      
         if (document.getElementById(key).classList.contains('button-checked')){

@@ -12,3 +12,19 @@ body::-webkit-scrollbar {
   width: 70px;
   height: 88px;
 }
+
+li {
+  list-style: none;
+  padding: 0 1rem;
+}
+
+ul {
+  display: flex;
+  justify-content: end;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

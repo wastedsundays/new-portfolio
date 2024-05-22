@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from 'react';
 import { REST_PATH } from "../globals/globals";
+import OtherProjects from "../components/other-projects";
 
 function SinglePage() {
     const { slug } = useParams()
@@ -46,20 +47,28 @@ function SinglePage() {
     return (
         <div className=''>
             {isLoaded ? (
+                
                 <div>
+                    {restData[0].featured_images['2048x2048'] && (
+                        <img srcSet={restData[0].featured_images['2048x2048'].srcset}/>
+                    )}
+
+                    <h1>{restData[0].title.rendered}</h1>
+
+                    {restData[0].acf.project_description && (
+                        <p>{restData[0].acf.project_description}</p>
+                    )}
                     
-                    <h2>{restData[0].title.rendered}</h2>
+                    
                     <div dangerouslySetInnerHTML={{__html:restData[0].content.rendered }}></div>
+                    
 
                     {restData[0].acf.work_tools && restData[0].acf.work_tools.length > 0 && (
                         <div>
-                            <h3>Tools Used</h3>
+                            <h3 style={{color: restData[0].acf.project_primary_color}}>How It Was Made</h3>
                             {restData[0].acf.work_tools.map((tool, i) => (
                                 <div key={i}>
-                                    <div className={tool.post_title}>
-                                        {/* {tool.ID}
-                                        {tool.post_title} */}
-                                        
+                                    <div className={tool.post_title}>                                     
                                         <img src={getToolImage(tool.post_title)} alt={`${tool.post_title} icon card`} />
                                     </div>
                                 </div>
@@ -77,6 +86,8 @@ function SinglePage() {
                             Back
                         </button>
                     </Link>
+
+                    <OtherProjects />
 
                 </div>
             ) : (

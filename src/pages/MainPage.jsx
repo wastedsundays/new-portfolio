@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import Footer from "../components/footer"
 
 
 
@@ -9,6 +10,10 @@ function MainPage() {
 
                 <h1>Adam H</h1>
                 <p>Front End Developer</p>
+                <p>This will be a static section handled by react. Animation or something</p>
+                <Link to='work'>
+                    <button>View My Work</button>
+                </Link>
 
             </section>
             
@@ -44,8 +49,9 @@ function MainPage() {
                 </Link>
             </section>
 
-
+            <Footer />
         </div>
+
     )
 }
 
